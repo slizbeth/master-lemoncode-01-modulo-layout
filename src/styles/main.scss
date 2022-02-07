@@ -1,0 +1,206 @@
+@import "normalize.css";
+@import "_variables.scss";
+@import "_themeB.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    background-color: $background-color;
+    padding: 1em 1em 2em 1em;
+
+    @media screen and (min-width:768px) {
+        padding: 1em 2em 2em 2em;
+    }
+}
+
+.exercise {
+    padding-bottom: 2em; 
+}
+
+.statement {
+    font-family: $base-font;
+    text-decoration: underline;
+}
+
+.note {
+    font-family: $base-font;
+    font-size: 13px;
+}
+
+.container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .box {
+        border-radius: 5px;
+        padding: 2.5em 0.8em;
+    }
+
+    .base-color {
+      background-color: $base-color-palette;
+      color: $white;
+      padding: 2.5em 1em;
+    }
+    
+    @for $i from 1 through  4 {
+        .darken-#{$i} {
+            background-color: darken($base-color-palette, 5% * $i);
+            color: lighten($color-text, 10% * $i);
+        }
+        .lighten-#{$i} {
+            background-color: lighten($base-color-palette, 5% * $i);
+            color: lighten($color-text, 10% * $i);
+        }
+    }
+}
+
+.container-2 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width:1024px) {
+        display: block;
+    }
+
+    .box:not(.box-fonts) {
+        border: 1px solid $black;
+        border-radius: $border;
+        height: 80px;
+        padding: 1em;
+        width: 120px;
+    }
+
+    .box-text {
+        font-family:cursive;
+    }
+   
+    .box-base {
+        background-color: $base; 
+    }
+
+    .box-important {
+        background-color: $important;
+    }
+
+    .box-warning {
+        background-color: $warnig;
+    }
+
+    .principal-font {
+        font-family: $principal-font;
+    }
+
+    .secondary-font {
+        font-family: $secondary-font;
+    }
+
+    .box-shadow {
+        box-shadow: $shadow;
+        -webkit-box-shadow: $shadow;
+    }
+}
+
+.container-3 {
+    font-family: $base-font;
+    .menu {
+        background-color: $menu-background-color;
+        color: $white;
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            @media screen and (min-width:768px) {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        
+        &__item {
+            flex: 1;
+            padding: 1em;
+
+            &:hover{
+                background-color: $hover-color;
+            }
+        }
+    }
+}
+
+.container-4 {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    justify-content: center;
+    
+    @media screen and (min-width:768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width:1024px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .card {
+        background-color: $white;
+        border: 1px solid $card-border-color;
+        display: grid;
+        font-family: $base-font;
+        font-weight: 100;
+        grid-template-rows:  2fr 2fr 0.3fr 0.5fr;
+        max-width: 350px;
+       
+        &__img {
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &__content {
+            padding: 0 1rem;
+        }
+
+        &__title {
+            font-size: 28px;
+            font-weight: 100;
+        }
+
+        &__description {
+            line-height: 1.2;
+        }
+
+        &__published {
+            padding: 0 1em;
+            justify-self: end;
+
+            span:nth-child(1) {
+                font-weight: bold;
+            }
+
+            span:nth-child(2) {
+                color: $cta;
+            }
+        }
+
+        &__cta {
+            padding: 0 1em;
+        }
+
+        &__button {
+            background-color: $cta;
+            border: $cta;
+            color: $white;
+            padding: 1em;
+            width: 100%;
+
+            &:hover {
+                background-color: $cta-hover-color;
+            }
+        }
+    }
+}
